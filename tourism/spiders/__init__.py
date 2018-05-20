@@ -1,0 +1,1 @@
+from .tourism_spider import TourismSpider
