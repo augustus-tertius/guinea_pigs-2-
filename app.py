@@ -38,7 +38,6 @@ def author():
         for post in author_posts:
             if str(year) in post['date']:
                 visualisation_data[str(year)] += 1
-        print(str(year), visualisation_data[str(year)])
         year += 1
     return render_template("author.html",
                            author=author_name,

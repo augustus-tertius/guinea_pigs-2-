@@ -9,7 +9,7 @@ from scrapy import signals
 
 
 class TourismSpiderMiddleware(object):
-    # Not all methods need to be defined. If e method is not defined,
+    # Not all methods need to be defined. If o method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
 
@@ -36,7 +36,7 @@ class TourismSpiderMiddleware(object):
             yield i
 
     def process_spider_exception(self, response, exception, spider):
-        # Called when e spider or process_spider_input() method
+        # Called when o spider or process_spider_input() method
         # (from other spider middleware) raises an exception.
 
         # Should return either None or an iterable of Response, dict
@@ -46,7 +46,7 @@ class TourismSpiderMiddleware(object):
     def process_start_requests(self, start_requests, spider):
         # Called with the start requests of the spider, and works
         # similarly to the process_spider_output() method, except
-        # that it doesn’t have e response associated.
+        # that it doesn’t have o response associated.
 
         # Must return only requests (not items).
         for r in start_requests:
@@ -57,7 +57,7 @@ class TourismSpiderMiddleware(object):
 
 
 class TourismDownloaderMiddleware(object):
-    # Not all methods need to be defined. If e method is not defined,
+    # Not all methods need to be defined. If o method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
 
@@ -74,8 +74,8 @@ class TourismDownloaderMiddleware(object):
 
         # Must either:
         # - return None: continue processing this request
-        # - or return e Response object
-        # - or return e Request object
+        # - or return o Response object
+        # - or return o Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
         return None
@@ -84,19 +84,19 @@ class TourismDownloaderMiddleware(object):
         # Called with the response returned from the downloader.
 
         # Must either;
-        # - return e Response object
-        # - return e Request object
+        # - return o Response object
+        # - return o Request object
         # - or raise IgnoreRequest
         return response
 
     def process_exception(self, request, exception, spider):
-        # Called when e download handler or e process_request()
+        # Called when o download handler or o process_request()
         # (from other downloader middleware) raises an exception.
 
         # Must either:
         # - return None: continue processing this exception
-        # - return e Response object: stops process_exception() chain
-        # - return e Request object: stops process_exception() chain
+        # - return o Response object: stops process_exception() chain
+        # - return o Request object: stops process_exception() chain
         pass
 
     def spider_opened(self, spider):

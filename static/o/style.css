@@ -1,0 +1,29 @@
+body {
+    background-color: #B2DFDB;
+}
+
+.main {
+    background-image: url("/static/pics/mountain.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.bot-border {
+    border-bottom:1px #009688 solid;
+    margin:5px 0  5px 0
+}
+
+.search-block {
+    margin-top: 5em;
+    padding: 1em;
+    background-color: rgba(47, 79, 79, 0.6);
+}
+
+input {
+    margin: 2px;
+    width: 100%;
+}
+
+button {
+    margin: 2px;
+}

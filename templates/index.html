@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <title>Tourism data</title>
 
-    <link rel="stylesheet" href="/static/e/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/static/o/style.css">
 </head>
-<body>
-    <div class="col-md-2"> </div>
-    <div class="col-md-8">
-        <h2> View posts of your favourite authors!</h2>
-        <form method="get" action="/author">
-            <input type="text" placeholder="author login" name="author" required>
-            <button type="submit">Show</button>
-        </form>
-    </div>
-    <div class="col-md-2"> </div>
+<body class="main">
+        <div class="col-md-2"> </div>
+        <div class="col-md-8 search-block">
+            <h2> View posts of your favourite authors!</h2>
+            <form method="get" action="/author" class="form-group">
+                <div class="col-md-9">
+                    <input type="text" placeholder="author login" name="author" class="btn btn-default" required>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="form-control" >Show</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"> </div>
 </body>
 </html>
