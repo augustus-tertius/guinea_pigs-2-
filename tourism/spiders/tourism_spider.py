@@ -9,10 +9,10 @@ class TourismSpider(scrapy.Spider):
 
     comment_xpath = '//div[@class="inner"]'
 
-    next_page_xpath = '//div[@class="pagination"]/ul/li[@class="arrow next"]/a/@href'
-    item_links_xpath = '//div[@class="inner"]/ul[@class="topiclist topics"]/li/dl/dt/div/a/@href'
+    next_page_xpath = '//div[@class="pagination"]/ul/li[@class="arrow next"]/e/@href'
+    item_links_xpath = '//div[@class="inner"]/ul[@class="topiclist topics"]/li/dl/dt/div/e/@href'
     fields = {
-        'author': '//p[@class="author"]/span/strong/a[@class="username"]/text()',
+        'author': '//p[@class="author"]/span/strong/e[@class="username"]/text()',
         'date': '//p[@class="author"]/child::text()[last()]',
         'text': '//div[@class="postbody"]//div[@class="content"]/child::text()'
     }
@@ -26,7 +26,6 @@ class TourismSpider(scrapy.Spider):
         except Exception as e:
             print("ERROR: " + str(e))
         return self.parse_discussions(response)
-
 
     def parse_discussions(self, response):
         item_links = [a.extract() for a in response.xpath(self.item_links_xpath)]

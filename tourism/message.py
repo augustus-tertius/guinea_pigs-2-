@@ -1,7 +1,7 @@
 
 class Message:
 
-    def __init__(self, author_name,date,text):
+    def __init__(self, author_name, date, text):
         self.author_name = author_name
         self.date = date
         self.text = text
