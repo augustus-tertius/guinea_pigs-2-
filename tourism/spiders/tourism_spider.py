@@ -5,16 +5,16 @@ from tourism import TourismCommentItem
 class TourismSpider(scrapy.Spider):
     name = "tourism"
     allowed_domains = ["forum.rukzak.ua"]
-    start_urls = ["https://forum.rukzak.ua/viewforum.php?o=10&sid=633c3f063449ab6aa47bc5d3424cb276/viewtopic.php?o=10&t=5875"]
+    start_urls = ["https://forum.rukzak.ua/viewforum.php?f=10"]
 
-    comment_xpath = '//div[@class="inner"]'
+    comment_xpath = '//div[@class="postbody"]'
 
-    next_page_xpath = '//div[@class="pagination"]/ul/li[@class="arrow next"]/o/@href'
-    item_links_xpath = '//div[@class="inner"]/ul[@class="topiclist topics"]/li/dl/dt/div/o/@href'
+    next_page_xpath = '//div[@class="pagination"]/ul/li[@class="arrow next"]/a/@href'
+    item_links_xpath = '//div[@class="list-inner"]/a[@class="topictitle"]/@href'
     fields = {
-        'author': '//p[@class="author"]/span/strong/o[@class="username"]/text()',
-        'date': '//p[@class="author"]/child::text()[last()]',
-        'text': '//div[@class="postbody"]//div[@class="content"]/child::text()'
+        'author': './/p[@class="author"]/span/strong/a[@class="username"]/text()',
+        'date': './/p[@class="author"]/child::text()[last()]',
+        'text': './/div[@class="content"]/child::text()'
     }
 
     def parse(self, response):
@@ -39,7 +39,7 @@ class TourismSpider(scrapy.Spider):
     def parse_item(self, response):
         try:
             comments_list = response.xpath(self.comment_xpath)
-            print(len(comments_list))
+            print("Post per page %s" % len(comments_list))
             for comment in comments_list:
                 yield self.parse_comment(comment)
         except Exception as e:
@@ -47,7 +47,7 @@ class TourismSpider(scrapy.Spider):
 
     def parse_comment(self, comment):
         try:
-            comment_item = TourismCommentItem()
+            comment_item = {}
             for name, xpath in self.fields.items():
                 v = comment.xpath(xpath).extract_first()
                 if v:

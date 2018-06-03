@@ -11,6 +11,6 @@ COOKIES_ENABLED = False
 ITEM_PIPELINES = {
     'tourism.pipelines.MongoPipeline': 300,
 }
-LOG_ENABLED=False
+LOG_ENABLED = False
 MONGO_URI = 'mongodb://localhost:27017'
 MONGO_DATABASE = 'comments'

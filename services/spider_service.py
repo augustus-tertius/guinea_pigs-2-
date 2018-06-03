@@ -10,4 +10,4 @@ def load_comments():
     print("here 2")
     process.crawl(spiders.TourismSpider)
     print("here 3")
-    process.start()  # the script will block here until the crawling is finished
+    process.start()
